@@ -1,0 +1,107 @@
+:root {
+  font-size: 16px;
+}
+* {
+  box-sizing: border-box;
+}
+
+a, a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #424C3A;
+  font-size: 1.4rem;
+  font-family: "Cormorant SC", serif;
+  background-color: rgb(250, 246, 239);
+}
+
+/* General */
+.text-center {
+  text-align: center;
+}
+
+/* Main */
+.main {
+  margin: 0 auto;
+  max-width: 1048px;
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .header__initials {
+      width: 260px;
+  }
+}
+
+/* Footer */
+
+.footer {
+  padding-bottom: 30px;
+  .footer__content {
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2rem;
+    min-width: fit-content;
+  }
+}
+
+/* Header */
+.header {
+  .header__nav {
+    gap: 20px;
+    display: flex;
+    margin-top: 15px;
+    padding: 1rem 2rem;
+    align-items: center;
+    justify-content: space-between;
+    .header__link, .header__link:visited {
+      color: #424C3A;
+      padding: 5px 0;
+      transition: .3s;
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+    .header__link:hover {
+      border-bottom-color: #424C3A;
+    }
+  }
+}
+
+/* Homepage */
+.info {
+  display: flex;
+  margin: 0 auto;
+  max-width: 500px;
+  font-size: 1.8rem;
+  text-align: center;
+  padding: 20px 10px;
+  justify-content: space-between;
+  .info__separator {
+    width: 1px;
+    opacity: .5;
+    background-color: #424C3A;
+  }
+  .info__address {
+    margin-top: 5px;
+    font-size: 1.2rem;
+    display: inline-block;
+  }
+}
+
+.description {
+  margin: 0 auto;
+  max-width: 500px;
+  margin-bottom: 15px;
+}
