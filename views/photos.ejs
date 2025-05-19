@@ -1,0 +1,33 @@
+<!-- views/about.ejs -->
+<html>
+<head>
+  <%- include('partials/head') %>
+  <link rel="stylesheet" href="/css/gallery.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+
+  <section>
+    <h2 class="text-center">Reportaż weselny</h2>
+    <div>
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="images" accept="image/*" multiple required>
+        <button type="submit">Wyślij</button>
+      </form>
+      <% if (typeof error !== 'undefined') { %>
+        <p style="color: red;"><%= error %></p>
+      <% } %>
+    </div>
+    <div class="gallery">
+      <% images.forEach(image => { %>
+        <div style="margin: 10px;">
+          <img src="/uploads/<%= image %>" alt="Zdjęcie" style="max-width: 200px;">
+        </div>
+      <% }) %>
+    </div>
+  </section>
+
+  <!-- Wstawiamy komponent stopki -->
+  <%- include('partials/footer') %>
+</body>
+</html>

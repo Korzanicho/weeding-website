@@ -1,24 +1,22 @@
 // app.js
 const express = require('express');
+const path = require('path');
+const helmet = require('helmet');
+
 const app = express();
 
-// Ustawienie silnika szablonów na EJS
+// Middleware
+app.use(helmet({
+  contentSecurityPolicy: false // lub skonfiguruj jak wcześniej
+}));
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
-// Middleware dla plików statycznych (CSS)
-app.use(express.static('public'));
+// Routing
+const indexRoutes = require('./routes/index');
+app.use('/', indexRoutes);
 
-// Route dla strony głównej
-app.get('/', (req, res) => {
-  res.render('index', { title: 'Adrian & Klaudia' });
-});
-
-// Route dla strony "O nas"
-app.get('/history', (req, res) => {
-  res.render('history', { title: 'O nas' });
-});
-
-// Nasłuchujemy na porcie 3000
+// Serwer
 app.listen(3002, () => {
   console.log('Server is working on port 3002');
 });
