@@ -47,7 +47,7 @@ button:hover {
   background: #7F7E81;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
   padding: 7px;
   border-radius: 6px;
   font-size: 16px;
