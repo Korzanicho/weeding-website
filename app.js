@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const helmet = require('helmet');
+const expressLayouts = require('express-ejs-layouts');
 require('dotenv').config();
 const session = require('express-session');
 
@@ -20,6 +21,8 @@ app.use(helmet({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
+app.use(expressLayouts);
+app.set('layout', 'layouts/main');
 app.use(express.urlencoded({ extended: true }));
 
 // Routing

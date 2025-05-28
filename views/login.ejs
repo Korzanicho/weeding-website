@@ -1,10 +1,4 @@
-<html>
-<head>
-    <%- include('partials/head') %>
-    <link rel="stylesheet" href="/css/gallery.css">
-</head>
-<body>
-<%- include('partials/header') %>
+<% /* global error */ %>
 
 <section class="login">
     <h2 class="text-center">Logowanie</h2>
@@ -16,12 +10,10 @@
         method="POST"
         action="/login"
     >
-        <input type="password" name="password" required placeholder="Hasło" />
+        <label>
+            Hasło:
+            <input type="password" name="password" required placeholder="Wprowadź hasło" />
+        </label>
         <button type="submit">Zaloguj</button>
     </form>
 </section>
-
-<!-- Wstawiamy komponent stopki -->
-<%- include('partials/footer') %>
-</body>
-</html>

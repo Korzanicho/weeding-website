@@ -1,5 +1,14 @@
-<title><%= title %></title>
-<link rel="stylesheet" href="/css/styles.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<% /* global title, additionalStyles */ %>
+
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <% if (typeof additionalStyles !== 'undefined' && Array.isArray(additionalStyles)) { %>
+        <% additionalStyles.forEach((styleUrl) => { %>
+            <link rel="stylesheet" href="<%= styleUrl %>">
+        <% }) %>
+    <% } %>
+</head>

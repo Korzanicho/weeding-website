@@ -1,17 +1,4 @@
-<!-- views/about.ejs -->
-<html lang="pl">
-<head>
-  <%- include('partials/head') %>
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery-bundle.min.css"
-  />
-  <link rel="stylesheet" href="/css/gallery.css">
-</head>
-<body>
-  <%- include('partials/header') %>
-
-  <section>
+ <section>
     <h2 class="text-center">Reportaż weselny</h2>
     <div>
       <form action="/upload" method="post" enctype="multipart/form-data">
@@ -36,17 +23,3 @@
       <% }) %>
     </div>
   </section>
-
-  <%- include('partials/footer') %>
-  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/lightgallery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script>
-  <script>
-    lightGallery(document.querySelector(".gallery"), {
-      selector: "a",
-      thumbnail: true,
-      zoom: true,
-    });
-  </script>
-</body>
-</html>
