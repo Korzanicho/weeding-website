@@ -16,7 +16,7 @@ app.use(session({
 
 // Middleware
 app.use(helmet({
-  contentSecurityPolicy: false // lub skonfiguruj jak wcześniej
+  contentSecurityPolicy: false
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');

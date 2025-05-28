@@ -1,7 +1,11 @@
 <!-- views/about.ejs -->
-<html>
+<html lang="pl">
 <head>
   <%- include('partials/head') %>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery-bundle.min.css"
+  />
   <link rel="stylesheet" href="/css/gallery.css">
 </head>
 <body>
@@ -11,23 +15,38 @@
     <h2 class="text-center">Reportaż weselny</h2>
     <div>
       <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="images" accept="image/*" multiple required>
+        <label for="images">Dodaj zdjęcia</label>
+        <input type="file" name="images" accept="image/jpeg, image/png, image/heic, image/jpg" multiple required>
+        <ul>
+          <li>Max. 5 zdjęć</li>
+          <li>Max. 5MB per zdjęcie</li>
+        </ul>
         <button type="submit">Wyślij</button>
       </form>
+      <hr>
       <% if (typeof error !== 'undefined') { %>
         <p style="color: red;"><%= error %></p>
       <% } %>
     </div>
-    <div class="gallery">
+    <div class="gallery" style="display: flex; flex-wrap: wrap; gap: 10px;">
       <% images.forEach(image => { %>
-        <div style="margin: 10px;">
-          <img src="/uploads/<%= image %>" alt="Zdjęcie" style="max-width: 200px;">
-        </div>
+        <a href="/uploads/<%= image %>" class="gallery-item">
+          <img src="/uploads/<%= image %>" alt="Zdjęcie" style="width: 200px; height: auto; border-radius: 8px;">
+        </a>
       <% }) %>
     </div>
   </section>
 
-  <!-- Wstawiamy komponent stopki -->
   <%- include('partials/footer') %>
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/lightgallery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script>
+  <script>
+    lightGallery(document.querySelector(".gallery"), {
+      selector: "a",
+      thumbnail: true,
+      zoom: true,
+    });
+  </script>
 </body>
 </html>

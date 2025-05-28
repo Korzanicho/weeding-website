@@ -19,7 +19,6 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-    console.log(req.body, 'req')
     const { password } = req.body;
     if (password === process.env.GALLERY_PASSWORD) {
         req.session.authorized = true;

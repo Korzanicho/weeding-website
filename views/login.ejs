@@ -6,12 +6,16 @@
 <body>
 <%- include('partials/header') %>
 
-<section>
+<section class="login">
     <h2 class="text-center">Logowanie</h2>
     <% if (error) { %>
         <p style="color:red"><%= error %></p>
     <% } %>
-    <form method="POST" action="/login">
+    <form
+        class="login__form"
+        method="POST"
+        action="/login"
+    >
         <input type="password" name="password" required placeholder="Hasło" />
         <button type="submit">Zaloguj</button>
     </form>

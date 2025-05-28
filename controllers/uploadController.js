@@ -7,10 +7,12 @@ const upload = require('../middleware/upload');
 exports.uploadImages = (req, res) => {
     upload.array('images', 10)(req, res, async (err) => {
         if (err) {
-            return res.render('upload', { error: err.message });
+            return res.render('photos', { error: err.message, title: 'Zdjęcia', images: [] });
         }
 
-        const allowedMime = ['image/jpeg', 'image/png', 'image/heic', 'image/jpg'];
+        const allowedMime = [
+            'image/jpeg', 'image/png', 'image/heic', 'image/jpg'
+        ];
 
         for (const file of req.files) {
             const type = await fileTypeFromBuffer(file.buffer);
