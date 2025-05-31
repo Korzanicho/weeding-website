@@ -3,8 +3,9 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const router = express.Router();
+const authMiddleware = require('../middleware/auth');
 
-router.get('/photos', (req, res) => {
+router.get('/photos', authMiddleware, (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const perPage = 20;
     const start = (page - 1) * perPage;
