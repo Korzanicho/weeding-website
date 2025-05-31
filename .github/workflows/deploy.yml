@@ -28,5 +28,5 @@ jobs:
           ssh ciuser@146.59.87.169 << 'EOF'
             cd /var/www/websites/production/weeding-website
             npm install --omit=dev
-            pm2 restart weeding-website--sit
+            pm2 restart weeding-website--production
           EOF
