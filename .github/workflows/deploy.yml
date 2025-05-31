@@ -21,12 +21,21 @@ jobs:
 
       - name: Upload project files
         run: |
-          rsync -avz ./ ciuser@146.59.87.169:/var/www/websites/production/weeding-website/
+          rsync -avz --exclude='public/uploads' ./ ciuser@146.59.87.169:/var/www/websites/production/weeding-website/
 
       - name: Install dependencies and restart on server
         run: |
           ssh ciuser@146.59.87.169 << 'EOF'
+            set -e
             cd /var/www/websites/production/weeding-website
+          
+            mkdir -p public/uploads
+            chmod 755 public/uploads
+          
+            echo "Tworzenie backupu uploads (nadpisanie)..."
+            tar -czf uploads-backup.tar.gz public/uploads
+            echo "Backup zaktualizowany jako uploads-backup.tar.gz"
+            
             npm install --omit=dev
             pm2 restart weeding-website--production
           EOF
