@@ -23,11 +23,10 @@ jobs:
         run: |
           rsync -avz ./ ciuser@146.59.87.169:/var/www/websites/production/weeding-website/
 
-      - name: Install dependencies, build and restart on server
+      - name: Install dependencies and restart on server
         run: |
           ssh ciuser@146.59.87.169 << 'EOF'
             cd /var/www/websites/production/weeding-website
             npm install --omit=dev
-            npm run build
             pm2 restart weeding-website--sit
           EOF
