@@ -27,12 +27,7 @@
      <% if (typeof images === 'undefined') { %>
          <buton onclick="window.location.reload();">Odśwież stronę</buton>
     <% } else { %>
-        <div class="gallery" style="display: flex; flex-wrap: wrap; gap: 10px;">
-          <% images.forEach(image => { %>
-            <a href="/uploads/<%= image %>" class="gallery-item">
-              <img src="/uploads/<%= image %>" alt="Zdjęcie" style="width: 200px; height: auto; border-radius: 8px;">
-            </a>
-          <% }) %>
-        </div>
+         <div id="lightGallery" class="gallery"></div>
+         <div id="loader" style="text-align:center; margin:20px;">Ładowanie...</div>
      <% } %>
   </section>

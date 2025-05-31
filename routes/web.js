@@ -1,4 +1,4 @@
-// routes/index.js
+// routes/web.js
 const express = require('express');
 const router = express.Router();
 const viewController = require('../controllers/viewController');

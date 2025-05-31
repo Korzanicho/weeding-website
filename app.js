@@ -26,8 +26,11 @@ app.set('layout', 'layouts/main');
 app.use(express.urlencoded({ extended: true }));
 
 // Routing
-const indexRoutes = require('./routes/index');
-app.use('/', indexRoutes);
+const webRoutes = require('./routes/web');
+app.use('/', webRoutes);
+
+const apiRoutes = require('./routes/api');
+app.use('/api', apiRoutes);
 
 // Serwer
 app.listen(3002, () => {
