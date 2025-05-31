@@ -2,9 +2,6 @@
 
 <section class="login">
     <h2 class="text-center">Logowanie</h2>
-    <% if (error) { %>
-        <p style="color:red"><%= error %></p>
-    <% } %>
     <form
         class="login__form"
         method="POST"
@@ -16,4 +13,9 @@
         </label>
         <button type="submit">Zaloguj</button>
     </form>
+    <% if (error) { %>
+        <div class="error-message">
+            <span><%= error %></span>
+        </div>
+    <% } %>
 </section>

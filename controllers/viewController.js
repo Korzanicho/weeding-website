@@ -29,6 +29,6 @@ exports.getPhotos = (req, res) => {
         if (err) {
             return res.render('photos', { title: 'Zdjęcia', images: [], error: 'Błąd wczytywania zdjęć', additionalStyles, additionalScripts });
         }
-        res.render('photos', { title: 'Zdjęcia', images: files, additionalStyles, additionalScripts });
+        res.render('photos', { title: 'Zdjęcia', images: files, error: res?.body?.error, additionalStyles, additionalScripts });
     });
 };

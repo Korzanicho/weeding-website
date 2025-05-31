@@ -38,7 +38,7 @@ button {
 }
 
 button:focus {
-  box-shadow: inset 0 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0 0.5px 1px rgba(0, 0, 0, 0.1), 0 0 0 3.5px rgba(58, 108, 217, 0.5);
+  box-shadow: inset 0 0.8px 0 -0.25px rgba(255, 255, 255, 0.2), 0 0.5px 1px rgba(0, 0, 0, 0.1), 0 0 0 3.5px rgba(58, 108, 217, 0.5);
   outline: 0;
 }
 
@@ -64,6 +64,16 @@ input[type="text"], input[type="password"] {
 /* General */
 .text-center {
   text-align: center;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+}
+
+.content {
+  max-width: 1048px;
+  margin: 0 auto;
 }
 
 /* Main */
@@ -150,6 +160,7 @@ input[type="text"], input[type="password"] {
 
 /* login */
 .login {
+  margin-bottom: 50px;
   .login__form {
     gap: 10px;
     display: flex;

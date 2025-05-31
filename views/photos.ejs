@@ -1,25 +1,38 @@
- <section>
+ <section class="content">
     <h2 class="text-center">Reportaż weselny</h2>
     <div>
       <form action="/upload" method="post" enctype="multipart/form-data">
         <label for="images">Dodaj zdjęcia</label>
-        <input type="file" name="images" accept="image/jpeg, image/png, image/heic, image/jpg" multiple required>
+        <input type="file" id="imageInput" name="images" accept="image/jpeg, image/png, image/heic, image/jpg" multiple required>
         <ul>
-          <li>Max. 5 zdjęć</li>
-          <li>Max. 5MB per zdjęcie</li>
+            <li>Max. 5 zdjęć</li>
+            <li>Max. 5MB per zdjęcie</li>
+            <li>Dozwolone: jpg, png, heic</li>
         </ul>
         <button type="submit">Wyślij</button>
       </form>
       <hr>
-      <% if (typeof error !== 'undefined') { %>
+      <% if (typeof error === 'string') { %>
         <p style="color: red;"><%= error %></p>
       <% } %>
+        <% if (typeof error === 'object') { %>
+        <p style="color: red;">Poniższe pliki nie zostały przesłane:</p>
+        <ul>
+            <% error.forEach(errorObject => { %>
+                <li><%= errorObject.originalName %>: <%= errorObject.message %></li>
+            <% }) %>
+        </ul>
+      <% } %>
     </div>
-    <div class="gallery" style="display: flex; flex-wrap: wrap; gap: 10px;">
-      <% images.forEach(image => { %>
-        <a href="/uploads/<%= image %>" class="gallery-item">
-          <img src="/uploads/<%= image %>" alt="Zdjęcie" style="width: 200px; height: auto; border-radius: 8px;">
-        </a>
-      <% }) %>
-    </div>
+     <% if (typeof images === 'undefined') { %>
+         <buton onclick="window.location.reload();">Odśwież stronę</buton>
+    <% } else { %>
+        <div class="gallery" style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <% images.forEach(image => { %>
+            <a href="/uploads/<%= image %>" class="gallery-item">
+              <img src="/uploads/<%= image %>" alt="Zdjęcie" style="width: 200px; height: auto; border-radius: 8px;">
+            </a>
+          <% }) %>
+        </div>
+     <% } %>
   </section>
