@@ -17,7 +17,6 @@
         gallery.addEventListener('lgAfterSlide', async (event) => {
             console.log(gallery, renderedPhotosQuantity, event.detail.index);
             if (hasMore && event.detail.index + 3 >= renderedPhotosQuantity) {
-                // if (lightGalleryInstance) lightGalleryInstance.destroy();
                 await loadPhotos();
             }
         })
