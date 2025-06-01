@@ -1,11 +1,16 @@
 .gallery {
-    display: flex;
     gap: 1rem;
+    display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .gallery img {
-    max-width: 200px;
     height: auto;
+    max-width: 200px;
     border-radius: 8px;
+}
+
+.photos .form {
+    padding: 10px;
 }
