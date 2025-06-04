@@ -26,7 +26,6 @@ app.use(
     contentSecurityPolicy: false,
   }),
 );
-
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 app.use(expressLayouts);
@@ -41,13 +40,6 @@ const apiRoutes = require("./routes/api");
 app.use("/api", apiRoutes);
 
 // Serwer
-const PORT = process.env.PORT || 3002;
-app.listen(PORT, () => {
-  console.log(`Server is working on port ${PORT}`);
-});
-
-// na końcu pliku
-app.use((err, req, res) => {
-  console.error(err.stack);
-  res.status(500).render("error", { message: "Coś poszło nie tak 😓" });
+app.listen(3002, () => {
+  console.log("Server is working on port 3002");
 });
